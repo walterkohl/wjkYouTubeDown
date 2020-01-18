@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
@@ -25,10 +26,14 @@ namespace wjkYouTupe
         {
             try
             {
+                label7.Text = "Info-Datei gespeichert unter: ";
+                label7.Visible = false;
+
                 string uri = TxtUri.Text.Trim();
                 var youTube = YouTube.Default;
                 video = youTube.GetVideo(uri);
-                TxtName.Text = video.Title;
+                TxtName.Text = video.Title.Replace(" ", "_");
+                TxtName.Text = NormelizeFileName(TxtName.Text);
                 button3.Enabled = true;
             }
             catch(Exception ex)
@@ -38,12 +43,30 @@ namespace wjkYouTupe
             }
         }
 
+        public string NormelizeFileName(string strIn)
+        {
+            // Replace invalid characters with empty strings.
+            try
+            {
+                return Regex.Replace(strIn, @"[^\w\-]", "",
+                                        RegexOptions.None, TimeSpan.FromSeconds(1.5));
+            }
+            // If we timeout when replacing invalid characters, 
+            // we should return Empty.
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BtnReset_Click(null, null);
+                return String.Empty;
+            }
+        }
+
         private void Button3_Click(object sender, EventArgs e)
         {
             TxtInfos.Text = "Originaltitel: " + video.Title + "\r\n";
             TxtInfos.Text += "Speichername: " + TxtName.Text + "\r\n";
             TxtInfos.Text += "Erweiterung: " + video.FileExtension + "\r\n";
-            TxtInfos.Text += "Ganzer Mame: " + video.FullName + "\r\n";
+            TxtInfos.Text += "Ganzer Name: " + video.FullName + "\r\n";
             TxtInfos.Text += "Auflösung: " + video.Resolution + "\r\n";
             TxtInfos.Text += "Videoformat: " + video.Format + "\r\n" + "\r\n";
             TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n";
@@ -99,20 +122,18 @@ namespace wjkYouTupe
                         label7.Text += path; label7.Visible = true;
                         File.WriteAllText(path, TxtInfos.Text);
                     }
+                    BtnReset_Click(null, null);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            BtnReset_Click(null, null);
         }
 
         private void TxtUri_TextChanged(object sender, EventArgs e)
         {
             ReadFile.Enabled = true;
-            label7.Text = "Info-Datei gespeichert unter: ";
-            label7.Visible = false;
         }
 
         private void TxtPath_TextChanged(object sender, EventArgs e)
@@ -143,6 +164,8 @@ namespace wjkYouTupe
 
         private void BtnHelp_Click(object sender, EventArgs e)
         {
+            help form = new help();
+            form.Show();
         }
     }
 }

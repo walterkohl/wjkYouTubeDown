@@ -226,6 +226,12 @@
     <Compile Include="about.Designer.cs">
       <DependentUpon>about.cs</DependentUpon>
     </Compile>
+    <Compile Include="help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="help.Designer.cs">
+      <DependentUpon>help.cs</DependentUpon>
+    </Compile>
     <Compile Include="start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="about.resx">
       <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="help.resx">
+      <DependentUpon>help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="start.resx">
       <DependentUpon>start.cs</DependentUpon>
@@ -269,6 +278,8 @@
     <None Include="Ressources\wjk-software96x96.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ressources\Preview.PNG" />
+    <Content Include="Ressources\wjk-logo16x16.ico" />
     <Content Include="wjk-logo16x16.ico" />
   </ItemGroup>
   <ItemGroup>

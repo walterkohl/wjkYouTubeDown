@@ -63,6 +63,16 @@ namespace wjkYouTupe.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Preview {
+            get {
+                object obj = ResourceManager.GetObject("Preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wjk_software96x96 {
             get {
                 object obj = ResourceManager.GetObject("wjk-software96x96", resourceCulture);

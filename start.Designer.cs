@@ -120,6 +120,7 @@
             this.TxtInfos.Location = new System.Drawing.Point(12, 147);
             this.TxtInfos.Multiline = true;
             this.TxtInfos.Name = "TxtInfos";
+            this.TxtInfos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtInfos.Size = new System.Drawing.Size(634, 146);
             this.TxtInfos.TabIndex = 7;
             // 

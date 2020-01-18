@@ -117,11 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="wjk-software96x96" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Ressources\wjk-software96x96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Alles was Sie tun müssen ist.
+① kopieren Sie den Link des Videos in das oberste Feld. ⇒ klicken Sie auf den Button "Datei lesen".
+② Im zweiten Feld können Sie nun den Dateinamen (ohne Erweiterung) zum Speichern bearbeiten. ⇒ Klicken Sie auf den Button "Name okay?
+③ In dem Textfeld können Sie nun eine Beschreibung bearbeiten. Sie wird im gleichen Verzeichnis und mit dem gleichen Dateinamen wie Ihr Video gespeichert. Die Erweiterung ist ".txt".
+▶ Das Auswahlfeld neben "Ja, Infos speichern" muss ausgewählt werden.
+④ Nach einem Klick auf den großen Button "Verzeichnis zum Speichern wählen" kann man das Verzeichnis zum Speichern des Videos auswählen.
+⑤ Das letzte Feld zeigt Ihnen nun den vollständigen Pfad mit dem Dateinamen, unter dem das Video gespeichert wird. Wenn alles OK ist ⇒ klicken Sie auf "Speichern".
+▶ Nun wird "Speichern" in roter Schrift angezeigt. Warten Sie, bis der Vorgang abgeschlossen ist. Dann können Sie das nächste Video speichern.
+◾ Die Schaltfläche "About" zeigt wichtige Informationen an.
+◾ Der Button "Reset" löscht alle Einträge.
+◾ Der Button "Hilfe" zeigt die Benutzerhilfe an (dieses Fenster). </value>
   </data>
-  <data name="Preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Ressources\Preview.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAAGAAAABgAAAAAAAAAAAA
+        AAD+///////////////////////////////////////////////////////////////+////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////68vz99f//////
+        //////////////////////////+E7VuJ5GWG4meQ+mF0vWeG/1p1/z1UxEJY/xw32wlQ/w+i/Ib/////
+        ///////+//w/5Q8zzBJG6hpL6R4nrBhK5CNZ/CMtpyBN3Sg8wiJj/zKZ2ZD////////6//iD7mRh/zBs
+        +EZ0/0d6/0dKxDY9tS1w/z86rS9t/UNe8zVo/DeQx4/////////u/+VH2xhD3BZN4R5I2h5f+ioskio/
+        ty9p/zcyqCJk9jZh+zJv+kWMwY/////////c/NBW8SdBwC92/0o/ui98/0cieypY3TVr/z8yqx5j8jpN
+        4CNO1C1trXP///////+t+JFI7BRIzydW6CpGzCdp/zI3riVp/zVg8TdT3DBj6z9K0i1y/z8gjxzu9u//
+        //+F6Wcz3QA30RZC3R5O6yNO8SM2xRxQ8B480hZH4CM9zB45yBpO7SdouWjh8OH////8//vv9PLX5NnV
+        49fZ5trX5trY5trV49fa5tvV5Nfj7OT1+PX3+Pf9/v3/////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</value>
   </data>
 </root>
