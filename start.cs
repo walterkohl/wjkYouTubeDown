@@ -68,8 +68,9 @@ namespace wjkYouTupe
             TxtInfos.Text += "Erweiterung: " + video.FileExtension + "\r\n";
             TxtInfos.Text += "Ganzer Name: " + video.FullName + "\r\n";
             TxtInfos.Text += "Auflösung: " + video.Resolution + "\r\n";
-            TxtInfos.Text += "Videoformat: " + video.Format + "\r\n" + "\r\n";
-            TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n";
+            TxtInfos.Text += "Videoformat: " + video.Format + "\r\n";
+            TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n";
+            TxtInfos.Text += "\b Platz für eigene Einträge... \b";
             TxtName.ReadOnly = true;
             button1.Enabled = true;
         }
@@ -83,7 +84,7 @@ namespace wjkYouTupe
                 folderBrowserDialog1.Description = "Wähle das Verzeichnis zum Speichern aus";
                 folderBrowserDialog1.ShowDialog();
                 TxtPath.Text = Path.Combine(folderBrowserDialog1.SelectedPath, TxtName.Text + video.FileExtension);
-                TxtInfos.Text += "Speicherort: " + TxtPath.Text + "\r\n" + "\r\n";
+                TxtInfos.Text += "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n" + "Speicherort: " + TxtPath.Text + "\r\n" + "\r\n";
                 TxtInfos.ReadOnly = true;
                 button2.Enabled = true;
             }
@@ -128,6 +129,9 @@ namespace wjkYouTupe
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtPath.ReadOnly = false;
+                button2.Enabled = true;
+                label5.Visible = false;
             }
         }
 

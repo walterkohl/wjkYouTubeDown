@@ -62,7 +62,7 @@
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(307, 234);
             this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "\nVersion 1.0.3\n© Copyrights 2019-20 by \nWalter Kohl, grad. Engineer\nwjk-Software®" +
+            this.richTextBox1.Text = "\nVersion 1.0.4\n© Copyrights 2019-20 by \nWalter Kohl, grad. Engineer\nwjk-Software®" +
     ", Switzerland.\nPhone: +66 88 525 9904\neMail: walter.kohl@hotmail.com\nhttp://www." +
     "walter-kohl.ch\n";
             // 

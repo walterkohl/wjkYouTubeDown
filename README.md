@@ -1,16 +1,19 @@
 # wjk-YouTube-Downloader
-Primitiv download for YouTube Videos
+Lightwight download for YouTube Videos<br>
+*** GUI: German Language ***<br>
+Based on [libvideo](https://github.com/omansak/libvideo) by [Omansak](https://github.com/omansak)
 
-*** GUI: German Language ***
+[Releases](https://github.com/walterkohl/wjkYouTubeDown/releases)
 
-Based on libvideo: https://github.com/omansak/libvideo
+### Release v1.0.4
+- Usability improved.<br>
+- Error processing revised.<br>
 
+### Release v1.0.3
+- Add a help window.<br>
+- Add a scrollbar at the info textbox.<br>
+- Normalize the file name.<br>
 
-##Releases: https://github.com/walterkohl/wjkYouTubeDown/releases
-First public v1.0.2
+### First public v1.0.2
 
-###Last Release v1.0.3
-Add a help window.
-Add a scrollbar at the info textbox.
-Normelizing the file name.
 
