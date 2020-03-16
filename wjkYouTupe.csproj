@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\wjk-Projects\source\public\wjkYouTube\V104\</PublishUrl>
+    <PublishUrl>D:\wjk-Projects\source\public\wjkYouTube\V110\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -29,7 +29,7 @@
     <ProductName>wjk-YouTube-Downloader</ProductName>
     <PublisherName>Dipl.-Ing. Walter Kohl - wjk-Software®</PublisherName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -233,7 +233,6 @@
     <Compile Include="help.Designer.cs">
       <DependentUpon>help.cs</DependentUpon>
     </Compile>
-    <Compile Include="HttpContentExtensions.cs" />
     <Compile Include="saving.cs">
       <SubType>Form</SubType>
     </Compile>

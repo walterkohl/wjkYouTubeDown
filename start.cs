@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.IO;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using VideoLibrary;
-using System.Net;
-using System.Web;
 
 namespace wjkYouTupe
 {
@@ -34,7 +26,7 @@ namespace wjkYouTupe
                 string uri = TxtUri.Text.Trim();
                 if (radioYouTube.Checked && !uri.StartsWith("https://www.youtube.com/watch"))
                 {
-                    DialogResult result = MessageBox.Show("Dies scheint kein YouTube-Link zu sein." + "\r\n" + "Soll ich zum Direktlink für Videos wechseln?", "Wechsel zu Video-URL",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Dies scheint kein YouTube-Link zu sein." + "\r\n" + "Soll ich zum Direktlink für Videos wechseln?", "Wechsel zu Video-URL", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         radioYouTube.Checked = false;
@@ -65,7 +57,7 @@ namespace wjkYouTupe
                     HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
                     if (fileResp.StatusCode != HttpStatusCode.OK) { throw new Exception("Ich konnte die Datei nicht laden..."); }
                     int x = uri.LastIndexOf('/');
-                    TxtName.Text = uri.Substring(x+1, uri.Length - (x+1));
+                    TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
                     x = TxtName.Text.LastIndexOf('.');
                     TxtName.Text = TxtName.Text.Substring(0, x);
                     fileResp.Close();
@@ -75,9 +67,9 @@ namespace wjkYouTupe
                 BtnPreviewURL.Enabled = true;
                 radioURL.Enabled = false; radioYouTube.Enabled = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message+"\r\n"+"Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
             }
         }
@@ -134,7 +126,7 @@ namespace wjkYouTupe
         private void Button1_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 folderBrowserDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
                 folderBrowserDialog1.ShowNewFolderButton = true;
                 folderBrowserDialog1.Description = "Wähle das Verzeichnis zum Speichern aus";
@@ -179,7 +171,7 @@ namespace wjkYouTupe
 
                     if (radioYouTube.Checked)
                     {
-                        saveYouTube();
+                        SaveYouTube();
                     }
                     else
                     {
@@ -194,7 +186,7 @@ namespace wjkYouTupe
                             saveFile(fileResp);
                         }
                         finally
-                        {  }
+                        { }
                     }
                     if (CheckSaveInfo.Checked)
                     {
@@ -220,7 +212,7 @@ namespace wjkYouTupe
             }
         }
 
-        private async void saveYouTube()
+        private async void SaveYouTube()
         {
             File.WriteAllBytes(TxtPath.Text, await video.GetBytesAsync());
             form1.Close();
@@ -266,7 +258,7 @@ namespace wjkYouTupe
 
             BtnPreviewURL.Enabled = false;
             button3.Enabled = false;
-            radioURL.Enabled = true; 
+            radioURL.Enabled = true;
             radioYouTube.Enabled = true;
             TxtName.ReadOnly = false;
             button1.Enabled = false;

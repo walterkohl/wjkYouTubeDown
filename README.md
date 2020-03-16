@@ -1,9 +1,16 @@
 # wjk-YouTube-Downloader
-Lightwight download for YouTube Videos<br>
+Lightwight download for YouTube and direct linked videos<br>
 *** GUI: German Language ***<br>
 Based on [libvideo](https://github.com/omansak/libvideo) by [Omansak](https://github.com/omansak)
 
 [Releases](https://github.com/walterkohl/wjkYouTubeDown/releases)
+
+### Release v1.1.0 (First preversion of v2.0)
+- Download of videos with a direct link.<br>
+- Preview for videos in the net.<br>
+- Preview for downloaded videos.<br>
+- Asynchron downloads.<br>
+- Timer and progressbar integration.<br>
 
 ### Release v1.0.4
 - Usability improved.<br>
