@@ -49,6 +49,12 @@
             this.BtnReset = new System.Windows.Forms.Button();
             this.BtnAbout = new System.Windows.Forms.Button();
             this.BtnHelp = new System.Windows.Forms.Button();
+            this.radioYouTube = new System.Windows.Forms.RadioButton();
+            this.radioURL = new System.Windows.Forms.RadioButton();
+            this.groupURL = new System.Windows.Forms.GroupBox();
+            this.BtnPreviewFile = new System.Windows.Forms.Button();
+            this.BtnPreviewURL = new System.Windows.Forms.Button();
+            this.groupURL.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -62,18 +68,18 @@
             // 
             // TxtUri
             // 
-            this.TxtUri.Location = new System.Drawing.Point(12, 32);
+            this.TxtUri.Location = new System.Drawing.Point(12, 41);
             this.TxtUri.Name = "TxtUri";
             this.TxtUri.Size = new System.Drawing.Size(634, 26);
-            this.TxtUri.TabIndex = 1;
+            this.TxtUri.TabIndex = 2;
             this.TxtUri.TextChanged += new System.EventHandler(this.TxtUri_TextChanged);
             // 
             // ReadFile
             // 
-            this.ReadFile.Location = new System.Drawing.Point(669, 67);
+            this.ReadFile.Location = new System.Drawing.Point(669, 12);
             this.ReadFile.Name = "ReadFile";
             this.ReadFile.Size = new System.Drawing.Size(119, 32);
-            this.ReadFile.TabIndex = 2;
+            this.ReadFile.TabIndex = 3;
             this.ReadFile.Text = "Datei lesen";
             this.ReadFile.UseVisualStyleBackColor = true;
             this.ReadFile.Click += new System.EventHandler(this.ReadFile_Click);
@@ -84,12 +90,12 @@
             this.label2.Location = new System.Drawing.Point(12, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 20);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Dateiname zum Speichern";
             // 
             // TxtName
             // 
-            this.TxtName.Location = new System.Drawing.Point(226, 73);
+            this.TxtName.Location = new System.Drawing.Point(226, 74);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(420, 26);
             this.TxtName.TabIndex = 4;
@@ -100,7 +106,7 @@
             this.label3.Location = new System.Drawing.Point(16, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(381, 20);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Nachfolgende Videoinformationen in Datei speichern";
             // 
             // CheckSaveInfo
@@ -122,12 +128,12 @@
             this.TxtInfos.Name = "TxtInfos";
             this.TxtInfos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtInfos.Size = new System.Drawing.Size(634, 146);
-            this.TxtInfos.TabIndex = 7;
+            this.TxtInfos.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(669, 147);
+            this.button1.Location = new System.Drawing.Point(669, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 106);
             this.button1.TabIndex = 8;
@@ -141,7 +147,7 @@
             this.label4.Location = new System.Drawing.Point(16, 313);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 20);
-            this.label4.TabIndex = 9;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Speichern unter";
             // 
             // TxtPath
@@ -155,10 +161,10 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(669, 261);
+            this.button2.Location = new System.Drawing.Point(669, 275);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 32);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Speichern";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -166,10 +172,10 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(669, 106);
+            this.button3.Location = new System.Drawing.Point(669, 64);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 35);
-            this.button3.TabIndex = 12;
+            this.button3.TabIndex = 5;
             this.button3.Text = "Name okay?";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
@@ -182,7 +188,7 @@
             this.label5.Location = new System.Drawing.Point(521, 313);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
-            this.label5.TabIndex = 13;
+            this.label5.TabIndex = 0;
             this.label5.Text = "*** Speichern ***";
             this.label5.UseWaitCursor = true;
             this.label5.Visible = false;
@@ -195,7 +201,7 @@
             this.label6.Location = new System.Drawing.Point(181, 313);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(274, 20);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Die Datei existiert, bitte umbenennen!";
             this.label6.Visible = false;
             // 
@@ -206,7 +212,7 @@
             this.label7.Location = new System.Drawing.Point(12, 380);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(216, 20);
-            this.label7.TabIndex = 15;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Info-Datei gespeichert unter: ";
             this.label7.Visible = false;
             // 
@@ -217,7 +223,7 @@
             this.BtnReset.Location = new System.Drawing.Point(669, 313);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(119, 34);
-            this.BtnReset.TabIndex = 16;
+            this.BtnReset.TabIndex = 0;
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseVisualStyleBackColor = false;
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
@@ -225,10 +231,10 @@
             // BtnAbout
             // 
             this.BtnAbout.BackColor = System.Drawing.Color.LawnGreen;
-            this.BtnAbout.Location = new System.Drawing.Point(669, 16);
+            this.BtnAbout.Location = new System.Drawing.Point(669, 406);
             this.BtnAbout.Name = "BtnAbout";
             this.BtnAbout.Size = new System.Drawing.Size(119, 42);
-            this.BtnAbout.TabIndex = 17;
+            this.BtnAbout.TabIndex = 12;
             this.BtnAbout.Text = "About";
             this.BtnAbout.UseVisualStyleBackColor = false;
             this.BtnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
@@ -237,19 +243,80 @@
             // 
             this.BtnHelp.BackColor = System.Drawing.Color.Lime;
             this.BtnHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnHelp.Location = new System.Drawing.Point(669, 353);
+            this.BtnHelp.Location = new System.Drawing.Point(527, 406);
             this.BtnHelp.Name = "BtnHelp";
-            this.BtnHelp.Size = new System.Drawing.Size(119, 47);
-            this.BtnHelp.TabIndex = 18;
+            this.BtnHelp.Size = new System.Drawing.Size(119, 42);
+            this.BtnHelp.TabIndex = 11;
             this.BtnHelp.Text = "Hilfe";
             this.BtnHelp.UseVisualStyleBackColor = false;
             this.BtnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
+            // 
+            // radioYouTube
+            // 
+            this.radioYouTube.AutoSize = true;
+            this.radioYouTube.Checked = true;
+            this.radioYouTube.Location = new System.Drawing.Point(60, 7);
+            this.radioYouTube.Name = "radioYouTube";
+            this.radioYouTube.Size = new System.Drawing.Size(133, 24);
+            this.radioYouTube.TabIndex = 100;
+            this.radioYouTube.TabStop = true;
+            this.radioYouTube.Text = "YouTube-Link";
+            this.radioYouTube.UseVisualStyleBackColor = true;
+            // 
+            // radioURL
+            // 
+            this.radioURL.AutoSize = true;
+            this.radioURL.Location = new System.Drawing.Point(199, 9);
+            this.radioURL.Name = "radioURL";
+            this.radioURL.Size = new System.Drawing.Size(113, 24);
+            this.radioURL.TabIndex = 20;
+            this.radioURL.Text = "Video-URL";
+            this.radioURL.UseVisualStyleBackColor = true;
+            // 
+            // groupURL
+            // 
+            this.groupURL.Controls.Add(this.radioURL);
+            this.groupURL.Controls.Add(this.radioYouTube);
+            this.groupURL.Location = new System.Drawing.Point(334, -2);
+            this.groupURL.Name = "groupURL";
+            this.groupURL.Size = new System.Drawing.Size(312, 42);
+            this.groupURL.TabIndex = 1;
+            this.groupURL.TabStop = false;
+            this.groupURL.Text = "URL";
+            // 
+            // BtnPreviewFile
+            // 
+            this.BtnPreviewFile.BackColor = System.Drawing.Color.Lime;
+            this.BtnPreviewFile.Enabled = false;
+            this.BtnPreviewFile.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnPreviewFile.Location = new System.Drawing.Point(669, 353);
+            this.BtnPreviewFile.Name = "BtnPreviewFile";
+            this.BtnPreviewFile.Size = new System.Drawing.Size(119, 47);
+            this.BtnPreviewFile.TabIndex = 10;
+            this.BtnPreviewFile.Text = "Vorschau";
+            this.BtnPreviewFile.UseVisualStyleBackColor = false;
+            this.BtnPreviewFile.Click += new System.EventHandler(this.BtnPreviewFile_Click);
+            // 
+            // BtnPreviewURL
+            // 
+            this.BtnPreviewURL.BackColor = System.Drawing.Color.Lime;
+            this.BtnPreviewURL.Enabled = false;
+            this.BtnPreviewURL.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnPreviewURL.Location = new System.Drawing.Point(669, 113);
+            this.BtnPreviewURL.Name = "BtnPreviewURL";
+            this.BtnPreviewURL.Size = new System.Drawing.Size(119, 47);
+            this.BtnPreviewURL.TabIndex = 7;
+            this.BtnPreviewURL.Text = "Vorschau";
+            this.BtnPreviewURL.UseVisualStyleBackColor = false;
+            this.BtnPreviewURL.Click += new System.EventHandler(this.BtnPreviewURL_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 473);
+            this.Controls.Add(this.BtnPreviewURL);
+            this.Controls.Add(this.BtnPreviewFile);
             this.Controls.Add(this.BtnHelp);
             this.Controls.Add(this.BtnAbout);
             this.Controls.Add(this.BtnReset);
@@ -269,9 +336,12 @@
             this.Controls.Add(this.ReadFile);
             this.Controls.Add(this.TxtUri);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupURL);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
             this.Text = "wjk-YouTube-Download";
+            this.groupURL.ResumeLayout(false);
+            this.groupURL.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +369,11 @@
         private System.Windows.Forms.Button BtnReset;
         private System.Windows.Forms.Button BtnAbout;
         private System.Windows.Forms.Button BtnHelp;
+        private System.Windows.Forms.RadioButton radioYouTube;
+        private System.Windows.Forms.RadioButton radioURL;
+        private System.Windows.Forms.GroupBox groupURL;
+        private System.Windows.Forms.Button BtnPreviewFile;
+        private System.Windows.Forms.Button BtnPreviewURL;
     }
 }
 
