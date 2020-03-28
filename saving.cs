@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace wjkYouTupe
 {
     public partial class saving : Form
     {
+        DbLayer trans = new DbLayer("saving", CultureInfo.CurrentCulture.Name);
         int sec = 0; int min = 0;
         public saving()
         {
@@ -13,6 +15,8 @@ namespace wjkYouTupe
             timer1.Interval = 1000;
             timer1.Tick += Timer_Tick;
             timer1.Start();
+
+            label1.Text = trans.GetSingleTranslation("label1");
         }
 
 
@@ -31,6 +35,12 @@ namespace wjkYouTupe
         {
             sec = 0; min = 0;
             progressBar1.Value = 1;
+        }
+
+        private void saving_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+            timer1.Dispose();
         }
     }
 }

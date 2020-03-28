@@ -5,7 +5,7 @@ namespace wjkYouTupe
 {
     public partial class video : Form
     {
-
+        DbLayer trans = new DbLayer("LangEditor", Properties.Settings.Default.Fallback);
         public video()
         {
             InitializeComponent();

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(saving));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -67,6 +66,7 @@
             this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Timer:";
+            this.label2.UseWaitCursor = true;
             // 
             // lblTimer
             // 
@@ -76,6 +76,7 @@
             this.lblTimer.Size = new System.Drawing.Size(18, 20);
             this.lblTimer.TabIndex = 3;
             this.lblTimer.Text = "0";
+            this.lblTimer.UseWaitCursor = true;
             // 
             // saving
             // 
@@ -86,7 +87,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "saving";
             this.Opacity = 0.9D;
@@ -94,6 +94,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "wjk-Video Downloader";
             this.UseWaitCursor = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.saving_FormClosing);
             this.Shown += new System.EventHandler(this.form_showen);
             this.ResumeLayout(false);
             this.PerformLayout();

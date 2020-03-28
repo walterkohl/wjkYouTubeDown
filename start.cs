@@ -3,17 +3,35 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Globalization;
 using VideoLibrary;
 
 namespace wjkYouTupe
 {
     public partial class Start : Form
     {
+        DbLayer trans = new DbLayer("start", Properties.Settings.Default.Fallback);
         YouTubeVideo video = null;
         saving form1 = null;
+        bool isInit = true;
         public Start()
         {
             InitializeComponent();
+
+            isInit = true;
+            DdLang.DataSource = trans.GetTransLanguages();
+            DdLang.SelectedItem = Properties.Settings.Default.Language;
+            CultureInfo culture = new CultureInfo(Properties.Settings.Default.Language);
+            CultureInfo.CurrentCulture = culture;
+            CultureInfo.CurrentUICulture = culture;
+            Application.CurrentCulture = culture;
+            Application.CurrentInputLanguage = InputLanguage.FromCulture(culture);
+            object[] test = trans.LanguageInfo(culture.Name, false);
+            SelectedLang.Text = test[0].ToString();
+            pictureBox1.Image = (Image)test[1];
+            TransControls();
+            isInit = false;
         }
 
         private void ReadFile_Click(object sender, EventArgs e)
@@ -21,55 +39,63 @@ namespace wjkYouTupe
             form1 = new saving();
             try
             {
-                label7.Text = "Info-Datei gespeichert unter: ";
-                label7.Visible = false;
                 string uri = TxtUri.Text.Trim();
-                if (radioYouTube.Checked && !uri.StartsWith("https://www.youtube.com/watch"))
+                if (uri == "trans")
                 {
-                    DialogResult result = MessageBox.Show("Dies scheint kein YouTube-Link zu sein." + "\r\n" + "Soll ich zum Direktlink für Videos wechseln?", "Wechsel zu Video-URL", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        radioYouTube.Checked = false;
-                        radioURL.Checked = true;
-                    }
-                }
-                else if (radioURL.Checked && uri.StartsWith("https://www.youtube.com/watch"))
-                {
-                    DialogResult result = MessageBox.Show("Dies scheint ein YouTube-Link zu sein." + "\r\n" + "Soll ich zum Download für YouTube-Videos wechseln?", "Wechsel zu YouTube", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        radioYouTube.Checked = true;
-                        radioURL.Checked = false;
-                    }
-                }
-
-                if (radioYouTube.Checked)
-                {
-                    var youTube = YouTube.Default;
-                    video = youTube.GetVideo(uri);
-                    TxtName.Text = video.Title.Replace(" ", "_");
+                    TxtUri.Text = string.Empty;
+                    LangEditor form = new LangEditor();
+                    form.ShowDialog();
                 }
                 else
                 {
-                    // https://stackoverflow.com/questions/5596747/download-stream-file-from-url-asp-net
+                    if (radioYouTube.Checked && !uri.StartsWith("https://www.youtube.com/watch"))
+                    {
+                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("NoYouTube1") + "\r\n" + trans.GetSingleTranslation("NoYouTube2"), trans.GetSingleTranslation("NoYouTube3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-                    HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(uri);
-                    HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
-                    if (fileResp.StatusCode != HttpStatusCode.OK) { throw new Exception("Ich konnte die Datei nicht laden..."); }
-                    int x = uri.LastIndexOf('/');
-                    TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
-                    x = TxtName.Text.LastIndexOf('.');
-                    TxtName.Text = TxtName.Text.Substring(0, x);
-                    fileResp.Close();
+                        if (result == DialogResult.Yes)
+                        {
+                            radioYouTube.Checked = false;
+                            radioURL.Checked = true;
+                        }
+                    }
+                    else if (radioURL.Checked && uri.StartsWith("https://www.youtube.com/watch"))
+                    {
+                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("IsYouTube1") + "\r\n" + trans.GetSingleTranslation("IsYouTube2"), trans.GetSingleTranslation("IsYouTube3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            radioYouTube.Checked = true;
+                            radioURL.Checked = false;
+                        }
+                    }
+
+                    if (radioYouTube.Checked)
+                    {
+                        var youTube = YouTube.Default;
+                        video = youTube.GetVideo(uri);
+                        TxtName.Text = video.Title.Replace(" ", "_");
+                    }
+                    else
+                    {
+                        // https://stackoverflow.com/questions/5596747/download-stream-file-from-url-asp-net
+
+                        HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(uri);
+                        HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
+                        if (fileResp.StatusCode != HttpStatusCode.OK) { throw new Exception(trans.GetSingleTranslation("Exception1")); }
+                        int x = uri.LastIndexOf('/');
+                        TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
+                        x = TxtName.Text.LastIndexOf('.');
+                        TxtName.Text = TxtName.Text.Substring(0, x);
+                        fileResp.Close();
+                    }
+                    TxtName.Text = NormelizeFileName(TxtName.Text);
+                    button3.Enabled = true;
+                    BtnPreviewURL.Enabled = true;
+                    radioURL.Enabled = false; radioYouTube.Enabled = false;
                 }
-                TxtName.Text = NormelizeFileName(TxtName.Text);
-                button3.Enabled = true;
-                BtnPreviewURL.Enabled = true;
-                radioURL.Enabled = false; radioYouTube.Enabled = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
             }
         }
@@ -86,7 +112,7 @@ namespace wjkYouTupe
             // we should return Empty.
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
                 return String.Empty;
             }
@@ -96,13 +122,13 @@ namespace wjkYouTupe
         {
             if (radioYouTube.Checked)
             {
-                TxtInfos.Text = "YouTube-Infos: " + "\r\n";
-                TxtInfos.Text += "Originaltitel: " + video.Title + "\r\n";
-                TxtInfos.Text += "Speichername: " + TxtName.Text + "\r\n";
-                TxtInfos.Text += "Erweiterung: " + video.FileExtension + "\r\n";
-                TxtInfos.Text += "Ganzer Name: " + video.FullName + "\r\n";
-                TxtInfos.Text += "Auflösung: " + video.Resolution + "\r\n";
-                TxtInfos.Text += "Videoformat: " + video.Format + "\r\n";
+                TxtInfos.Text = trans.GetSingleTranslation("Infotext1") + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext2") + video.Title + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext3") + TxtName.Text + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext4") + video.FileExtension + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext5") + video.FullName + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext6") + video.Resolution + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext7") + video.Format + "\r\n";
             }
             else
             {
@@ -112,13 +138,14 @@ namespace wjkYouTupe
                 x = uri.LastIndexOf('.');
                 string ext = uri.Substring(x + 1, uri.Length - (x + 1));
 
-                TxtInfos.Text = "Selfmade-Infos: " + "\r\n";
-                TxtInfos.Text += "Originaltitel: " + name + "\r\n";
-                TxtInfos.Text += "Speichername: " + TxtName.Text + "\r\n";
-                TxtInfos.Text += "Erweiterung: " + ext + "\r\n";
+                TxtInfos.Text = trans.GetSingleTranslation("Infotext8") + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext9") + name + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext10") + TxtName.Text + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext11") + ext + "\r\n";
             }
-            TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n";
-            TxtInfos.Text += "\b Platz für eigene Einträge... \b";
+            TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n";
+            TxtInfos.Text += "\r\n" + "-----------------------" + "\r\n" + "\r\n";
+            TxtInfos.Text += "\b" + trans.GetSingleTranslation("Infotext12") + "\b";
             TxtName.ReadOnly = true;
             button1.Enabled = true;
         }
@@ -127,81 +154,98 @@ namespace wjkYouTupe
         {
             try
             {
-                folderBrowserDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
+                if (string.IsNullOrEmpty(Properties.Settings.Default.DownloadPath))
+                {
+                    folderBrowserDialog1.RootFolder = Environment.SpecialFolder.UserProfile;
+                }
+                else
+                {
+                    folderBrowserDialog1.SelectedPath = Properties.Settings.Default.DownloadPath;
+                }
                 folderBrowserDialog1.ShowNewFolderButton = true;
-                folderBrowserDialog1.Description = "Wähle das Verzeichnis zum Speichern aus";
+                folderBrowserDialog1.Description = trans.GetSingleTranslation("folderBrowserDialog1");
                 folderBrowserDialog1.ShowDialog();
                 string uri = TxtUri.Text.Trim();
                 int x = uri.LastIndexOf('.');
                 string ext = uri.Substring(x, uri.Length - x);
                 TxtPath.Text = Path.Combine(folderBrowserDialog1.SelectedPath, TxtName.Text);
                 TxtPath.Text += (radioYouTube.Checked) ? video.FileExtension : ext;
-                TxtInfos.Text += "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n" + "Speicherort: " + TxtPath.Text + "\r\n" + "\r\n";
+                TxtInfos.Text += "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n" + trans.GetSingleTranslation("Infotext13") + TxtPath.Text + "\r\n" + "\r\n";
                 TxtInfos.ReadOnly = true;
                 button2.Enabled = true;
+                if (checkRememberPath.Checked)
+                {
+                    Properties.Settings.Default.DownloadPath = folderBrowserDialog1.SelectedPath;
+                    Properties.Settings.Default.Save();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
             }
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            if (File.Exists(TxtPath.Text))
+            {
+                var response = MessageBox.Show(trans.GetSingleTranslation("MessageBoxOverwrite1") + "\r\n" + trans.GetSingleTranslation("MessageBoxOverwrite2"), trans.GetSingleTranslation("MessageBoxOverwrite3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (response == DialogResult.Yes)
+                {
+                    SaveDatei();
+                }
+            }
+            else
+            {
+                SaveDatei();
+            }
+        }
+
+        private void SaveDatei()
+        {
+            ReadFile.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            TxtPath.ReadOnly = true;
 
             try
-            {
-                ReadFile.Enabled = false;
-                button1.Enabled = false;
-                button2.Enabled = false;
-                button3.Enabled = false;
-                TxtPath.ReadOnly = true;
+            { 
+                label5.Visible = true;
+                form1.Show();
 
-                if (File.Exists(TxtPath.Text))
+                if (radioYouTube.Checked)
                 {
-                    label6.Visible = true;
-                    TxtPath.ReadOnly = false;
-                    button2.Enabled = true;
+                    SaveYouTube();
                 }
                 else
                 {
-                    label5.Visible = true;
-                    form1.Show();
+                    try
+                    {
+                        HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(TxtUri.Text);
+                        HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
 
-                    if (radioYouTube.Checked)
-                    {
-                        SaveYouTube();
+                        if (fileReq.ContentLength > 0)
+                            fileResp.ContentLength = fileReq.ContentLength;
+                        TxtInfos.Text += String.Format("{0}: {1} Byte" + "\r\n", trans.GetSingleTranslation("Infotext14"), fileResp.ContentLength);
+                        saveFile(fileResp);
                     }
-                    else
-                    {
-                        try
-                        {
-                            HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(TxtUri.Text);
-                            HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
-
-                            if (fileReq.ContentLength > 0)
-                                fileResp.ContentLength = fileReq.ContentLength;
-                            TxtInfos.Text += String.Format("Dateigröße: {0} Byte" + "\r\n", fileResp.ContentLength);
-                            saveFile(fileResp);
-                        }
-                        finally
-                        { }
-                    }
-                    if (CheckSaveInfo.Checked)
-                    {
-                        int x = TxtPath.Text.LastIndexOf('.');
-                        string path = TxtPath.Text.Substring(0, x) + "_info.txt";
-                        TxtInfos.Text += "*** Diese Informationen werden gespeichert unter:  ***" + "\r\n";
-                        TxtInfos.Text += "*** " + path + " ***" + "\r\n" + "\r\n";
-                        label7.Text += path; label7.Visible = true;
-                        File.WriteAllText(path, TxtInfos.Text);
-                    }
+                    finally
+                    { }
+                }
+                if (CheckSaveInfo.Checked)
+                {
+                    int x = TxtPath.Text.LastIndexOf('.');
+                    string path = TxtPath.Text.Substring(0, x) + "_info.txt";
+                    TxtInfos.Text += "*** " + trans.GetSingleTranslation("Infotext15") + " ***" + "\r\n";
+                    TxtInfos.Text += "*** " + path + " ***" + "\r\n" + "\r\n";
+                    File.WriteAllText(path, TxtInfos.Text);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPath.ReadOnly = false;
                 button2.Enabled = true;
             }
@@ -231,7 +275,7 @@ namespace wjkYouTupe
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + "Bitte neu versuchen!", "Fehler beim Verarbeiten", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -247,9 +291,7 @@ namespace wjkYouTupe
         }
 
         private void TxtPath_TextChanged(object sender, EventArgs e)
-        {
-            label6.Visible = false;
-        }
+        { }
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
@@ -306,5 +348,44 @@ namespace wjkYouTupe
             form.Show();
         }
 
+        private void DdLang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!isInit)
+            {
+                CultureInfo culture = new CultureInfo(DdLang.SelectedItem.ToString());
+                CultureInfo.CurrentCulture = culture;
+                CultureInfo.CurrentUICulture = culture;
+                Application.CurrentCulture = culture;
+                Application.CurrentInputLanguage = InputLanguage.FromCulture(culture);
+                Properties.Settings.Default.Language = culture.Name;
+                Properties.Settings.Default.Save();
+                object[] test = trans.LanguageInfo(Properties.Settings.Default.Language);
+                SelectedLang.Text = test[0].ToString();
+                pictureBox1.Image = (Image)test[1];
+                trans.setLang(culture.Name);
+                TransControls();
+            }
+        }
+
+        private void TransControls()
+        {
+            ReadFile.Text = trans.GetSingleTranslation("ReadFile.Text");
+            radioYouTube.Text = trans.GetSingleTranslation("radioYouTube.Text");
+            radioURL.Text = trans.GetSingleTranslation("radioURL.Text");
+            label5.Text = trans.GetSingleTranslation("label5.Text");
+            label4.Text = trans.GetSingleTranslation("label4.Text");
+            label3.Text = trans.GetSingleTranslation("label3.Text");
+            label2.Text = trans.GetSingleTranslation("label2.Text");
+            label1.Text = trans.GetSingleTranslation("label1.Text");
+            groupURL.Text = trans.GetSingleTranslation("groupURL.Text");
+            CheckSaveInfo.Text = trans.GetSingleTranslation("CheckSaveInfo.Text");
+            button3.Text = trans.GetSingleTranslation("button3.Text");
+            button2.Text = trans.GetSingleTranslation("button2.Text");
+            button1.Text = trans.GetSingleTranslation("button1.Text");
+            BtnReset.Text = trans.GetSingleTranslation("BtnReset.Text");
+            BtnPreviewFile.Text = trans.GetSingleTranslation("BtnPreviewFile.Text");
+            BtnHelp.Text = trans.GetSingleTranslation("BtnHelp.Text");
+            BtnAbout.Text = trans.GetSingleTranslation("BtnAbout.Text");
+        }
     }
 }

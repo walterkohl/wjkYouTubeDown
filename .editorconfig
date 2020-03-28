@@ -1,4 +1,2 @@
 ﻿[*.cs]
 
-# CS0612: Typ oder Element ist veraltet
-dotnet_diagnostic.CS0612.severity = warning

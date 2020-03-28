@@ -130,24 +130,4 @@
 ◾ Der Button "Reset" löscht alle Einträge.
 ◾ Der Button "Hilfe" zeigt die Benutzerhilfe an (dieses Fenster). </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAAGAAAABgAAAAAAAAAAAA
-        AAD+///////////////////////////////////////////////////////////////+////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////68vz99f//////
-        //////////////////////////+E7VuJ5GWG4meQ+mF0vWeG/1p1/z1UxEJY/xw32wlQ/w+i/Ib/////
-        ///////+//w/5Q8zzBJG6hpL6R4nrBhK5CNZ/CMtpyBN3Sg8wiJj/zKZ2ZD////////6//iD7mRh/zBs
-        +EZ0/0d6/0dKxDY9tS1w/z86rS9t/UNe8zVo/DeQx4/////////u/+VH2xhD3BZN4R5I2h5f+ioskio/
-        ty9p/zcyqCJk9jZh+zJv+kWMwY/////////c/NBW8SdBwC92/0o/ui98/0cieypY3TVr/z8yqx5j8jpN
-        4CNO1C1trXP///////+t+JFI7BRIzydW6CpGzCdp/zI3riVp/zVg8TdT3DBj6z9K0i1y/z8gjxzu9u//
-        //+F6Wcz3QA30RZC3R5O6yNO8SM2xRxQ8B480hZH4CM9zB45yBpO7SdouWjh8OH////8//vv9PLX5NnV
-        49fZ5trX5trY5trV49fa5tvV5Nfj7OT1+PX3+Pf9/v3/////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////8AAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</value>
-  </data>
 </root>

@@ -36,7 +36,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::wjkYouTupe.Properties.Resources.Preview;
             this.pictureBox1.Location = new System.Drawing.Point(13, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(557, 299);
@@ -60,9 +59,8 @@
             this.ClientSize = new System.Drawing.Size(585, 702);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "help";
-            this.Text = "wjk-YouTube-Downloader Hilfe";
+            this.Text = "wjk-Video-Downloader Hilfe";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

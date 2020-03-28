@@ -61,22 +61,29 @@ namespace wjkYouTupe.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dies scheint kein YouTube-Link zu sein. ähnelt.
         /// </summary>
-        internal static System.Drawing.Bitmap Preview {
+        internal static string NoYouTube1 {
             get {
-                object obj = ResourceManager.GetObject("Preview", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("NoYouTube1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Soll ich zum Direktlink für Videos wechseln? ähnelt.
         /// </summary>
-        internal static System.Drawing.Bitmap wjk_software96x96 {
+        internal static string NoYouTube2 {
             get {
-                object obj = ResourceManager.GetObject("wjk-software96x96", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("NoYouTube2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wechsel zu Video-URL ähnelt.
+        /// </summary>
+        internal static string NoYouTube3 {
+            get {
+                return ResourceManager.GetString("NoYouTube3", resourceCulture);
             }
         }
     }

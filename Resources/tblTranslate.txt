@@ -1,0 +1,9 @@
+CREATE TABLE Translate (
+    ID    INTEGER        PRIMARY KEY ASC ON CONFLICT ROLLBACK AUTOINCREMENT
+                         UNIQUE ON CONFLICT ROLLBACK
+                         NOT NULL,
+    Form  VARCHAR (100)  NOT NULL,
+    Lang  VARCHAR (10)   NOT NULL,
+    [Key] VARCHAR (100)  NOT NULL,
+    Value VARCHAR (1000) 
+);

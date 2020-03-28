@@ -51,7 +51,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 527);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "video";
             this.Text = "wjk-Video-Downloader";
             this.Load += new System.EventHandler(this.video_load);
