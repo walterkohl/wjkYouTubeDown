@@ -1,6 +1,6 @@
 ﻿namespace wjkYouTupe
 {
-    partial class Start
+    partial class start
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(start));
             this.label1 = new System.Windows.Forms.Label();
             this.TxtUri = new System.Windows.Forms.TextBox();
             this.ReadFile = new System.Windows.Forms.Button();

@@ -1,0 +1,191 @@
+<?xml version="1.0" standalone="yes"?>
+<Translate>
+  <Table>
+    <ID>54</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Exception21</Key>
+    <Value>Please try again!</Value>
+  </Table>
+  <Table>
+    <ID>55</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Exception22</Key>
+    <Value>Error during processing</Value>
+  </Table>
+  <Table>
+    <ID>56</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Lang</Key>
+  </Table>
+  <Table>
+    <ID>88</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video-Download - Start</Value>
+  </Table>
+  <Table>
+    <ID>53</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnAbout.Text</Key>
+    <Value>About</Value>
+  </Table>
+  <Table>
+    <ID>52</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnHelp.Text</Key>
+    <Value>Help</Value>
+  </Table>
+  <Table>
+    <ID>51</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnPreviewFile.Text</Key>
+    <Value>Preview</Value>
+  </Table>
+  <Table>
+    <ID>50</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnReset.Text</Key>
+    <Value>Reset</Value>
+  </Table>
+  <Table>
+    <ID>73</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Exception1</Key>
+    <Value>Can't load the file.</Value>
+  </Table>
+  <Table>
+    <ID>75</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext1</Key>
+    <Value>YouTube informations</Value>
+  </Table>
+  <Table>
+    <ID>85</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext10</Key>
+    <Value>Name for saving</Value>
+  </Table>
+  <Table>
+    <ID>86</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext11</Key>
+    <Value>Extension</Value>
+  </Table>
+  <Table>
+    <ID>87</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext12</Key>
+    <Value>Space for own notes</Value>
+  </Table>
+  <Table>
+    <ID>82</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext2</Key>
+    <Value>Original name</Value>
+  </Table>
+  <Table>
+    <ID>77</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext3</Key>
+    <Value>Name to save</Value>
+  </Table>
+  <Table>
+    <ID>78</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext4</Key>
+    <Value>Extension</Value>
+  </Table>
+  <Table>
+    <ID>79</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext5</Key>
+    <Value>Fullname</Value>
+  </Table>
+  <Table>
+    <ID>80</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext6</Key>
+    <Value>Resolution</Value>
+  </Table>
+  <Table>
+    <ID>81</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext7</Key>
+    <Value>Video format</Value>
+  </Table>
+  <Table>
+    <ID>83</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext8</Key>
+    <Value>Selfmade informations</Value>
+  </Table>
+  <Table>
+    <ID>84</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>Infotext9</Key>
+    <Value>Original name</Value>
+  </Table>
+  <Table>
+    <ID>70</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>IsYouTube1</Key>
+    <Value>This appear to be a YouTube-link.</Value>
+  </Table>
+  <Table>
+    <ID>71</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>IsYouTube2</Key>
+    <Value>Should I switch to the download for YouTube videos?</Value>
+  </Table>
+  <Table>
+    <ID>72</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>IsYouTube3</Key>
+    <Value>Change to YouTube</Value>
+  </Table>
+  <Table>
+    <ID>4</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube1</Key>
+    <Value>This does not appear to be a YouTube link.</Value>
+  </Table>
+  <Table>
+    <ID>5</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube2</Key>
+    <Value>Should I switch to the direct link for videos?</Value>
+  </Table>
+  <Table>
+    <ID>6</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube3</Key>
+    <Value>This does not appear to be a YouTube link.</Value>
+  </Table>
+</Translate>

@@ -130,4 +130,64 @@
 ◾ Der Button "Reset" löscht alle Einträge.
 ◾ Der Button "Hilfe" zeigt die Benutzerhilfe an (dieses Fenster). </value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAAAGACoDAAAFgAAACgAAAAgAAAAQAAAAAEAGAAAAAAAAAAAADEAAAAxAAAAAAAAAAAA
+        AAD/////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////+//7/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////+///+//7/////////////////////////////////////////////////////////
+        ///////9///9///////////////////////////////////////////////9///9////////////////
+        ///////////////////////////////////////////////////////9///9////////////////////
+        //////////////////3////////9///9////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////9
+        //////////////////////////////////////////////////////////////////////7/////////
+        ///////////////////////////////////////////+///9////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///+/+////H///X///f///v///f//+3x/+D1/+3////s/+DH/7LJ/7LL/7PL/cLh/96s9pGW6nSb7n5+
+        zGeZ7neW63WX7HiV5Hh5rHft/+7////+//3////////////9//dg1Dpd3zJj3z5KvChBuCNi3z9g4jBo
+        7D0sjx1guU2A81tX7idc8CZf9CpExScOfwNd/SlX/xxc/y04zxBe/ydW/xtb/yVU8icKewcScBZ3sXe+
+        5L3////////////4//BZ6Sln/zN0/0dU2C1U3y9v/0Rs/zh8/0wmlRpIwjB1/0Rs/zpv/zly/ztu9Ew5
+        sSh6/0hr/zlo90FGxSht/z9n/zVx/0RW3jYnkScvkjEpgidYqFj////////////p/OFO1CpX7y5k80A6
+        vx5d7Tlc8jNX6CxP2isekRU8wSZH2SBD0R5F3BxE1hZBwSQfkRY4vRgvuwwrsw8vrxdR5idS5iNLzS0x
+        oiMulC4xmDAplic1mDT///7////x/+W1/55o8ENT5Sle7Dkrrg5d8jRa6itc6jBm7z5Qyztg30th40xa
+        3D9z/0lz/0Rs6lAkkB51+1J6/1Fk8EJf7EFw/0J3/0s9tyorjS0xljQskys9mD1bplv+//7///+09p9m
+        9jln/zJv/zl1/0Zi8jd0/0Ju/zpv/zt0/z9m7UA4uCQsqRlc4T51/0Jw/zxk7kUroCB9/0tw/zxt/zxr
+        /z1w/zt9/1E4siYwliwzmDUmjiaCwIHP7s/9//z///9/03BLzC9M0DFN0DFO0DRQ0DdOzzJLzzFQ2TBc
+        6zlMxDklkCIliiA+szFFwypFxio3qCoehR1LyTE+wCU+xCVDzylJzSJEvikljyExljEvmDAZhhhtqG70
+        //T8//nu/91i5Tlm/zRp/ztq/zpp/zVp/zlt/ztr/zhq/zV1/0BQxjwojSYxpCds+kZx/z95/0pFzSZJ
+        wzR5/0hw/zxv/zxu/zt2/z9c3EEpjykymTIxkjBNl0zY7Nf9//37//fL/7Rd8Clu/zdO2ipi9zRp/y1u
+        /zdV4jJX6itq/zJ0/z8+sC4qiys4sCdx/z5r/zF3/0cprgpJyy9y/zxu/zlY8SJt/zJy/zhNzDQqjiwy
+        mDEskipOl1D////9//36//fC+q9f6zVz/00nmx1k5Ulx/0V4/1ExoiZU1Thx/0F7/00vmistii8/tSxy
+        /0Jf9jJr900qpBRY1D9g7zhh6kJDyyNf8Ddi8Tc1rSUujzExmDMlkiZRmVT////9//70/+3R/8JLxC4y
+        shkYhhM2rSMytxU6uiMbhhQxqBtKziBT2S0fiBoihyE/tilU4i5G1ydOzjwXjQxGvzFHyi1DujExpyRJ
+        yzBIyS02qCcrkCovlzAhiSFTllb////+//68+aFr60Fk/y5z/0FV3TFz/0h3/0Rv/UFM1yxy/0Zw/zhz
+        /0NFvi9R1TBv/z1u/zlw/z1h6EFJzip1/0R0/0Bf4Ekuqhhy/0Nz/z+A/1U4sCctlC0tjC2y4bP////+
+        //6c+Hli8TVh/yVt/zRJ1yFo/TVs/zdO3R5h9jdp/zdm/yxu/zpJxi9c6jZt/zJm/y1s/zVFziJa4zdq
+        /zRv/zRJxzEtqhdx/zto/y1w/0QnnBw8mj01kjeZ2Jr+///9//2U+HJo9Tdt/zV8/0ZV3y18/09+/05Y
+        5jB+/0t5/0N2/0N7/01O0DFs+0N6/0R4/0R9/0pM1Shu90p8/0d//0tKxDVIwzR//056/0N7/1hTu0ps
+        wW1Fokcddh+p0Kv7//vA77V5unQniCAWghMbhRkjkyAlliMijSAlkiAijh8lkB8llCEkiyMolCUklCEl
+        jx8mkx8iix4mlCgjlSAnliInjyUpkCknlCEfkhsijh8hiCQ9nD5yxXGH0Yi41rn8//z1//P////W8tqZ
+        x5w6gjsTYhQUZxQVZBQzfTQUYhcVYxgicCQiciUUZxMUZxYVYhY2fDIxeDATZBQRZRMVZRYqdSsqeCsT
+        YxISYRFVmlZPk1EUYRYOWBASUBXh9+D9//3/////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////+
+        //7/////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////f/////////////////////////////9///9////
+        ///////////////////////////////9/f3////////////////////////////////9////////////
+        ///////////////////////////////////////////////////////////////////////9////////
+        //////////////////////////////////////////////////////////////////////////3///3/
+        //////////////////3///////////////////39//////////3/////////////////////////////
+        //////////////////////////////////////////3///3///////////////////3/////////////
+        //////3///////////39////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////+////////////////
+        //////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

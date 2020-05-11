@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace wjkYouTupe
 {
     public partial class video : Form
     {
-        DbLayer trans = new DbLayer("LangEditor", Properties.Settings.Default.Fallback);
+        DbLayerSQLCE trans = new DbLayerSQLCE();
+        readonly CultureInfo currentCulture = CultureInfo.CurrentCulture;
         public video()
         {
             InitializeComponent();
-
+            string value = this.Text;
+            this.Text = (trans.GetSingleTranslation(ref value, "video", "ActiveForm", currentCulture.Name)) ? value : this.Text;
         }
 
         public string VideoURL { get; set; }

@@ -59,32 +59,5 @@ namespace wjkYouTupe.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Dies scheint kein YouTube-Link zu sein. ähnelt.
-        /// </summary>
-        internal static string NoYouTube1 {
-            get {
-                return ResourceManager.GetString("NoYouTube1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Soll ich zum Direktlink für Videos wechseln? ähnelt.
-        /// </summary>
-        internal static string NoYouTube2 {
-            get {
-                return ResourceManager.GetString("NoYouTube2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Wechsel zu Video-URL ähnelt.
-        /// </summary>
-        internal static string NoYouTube3 {
-            get {
-                return ResourceManager.GetString("NoYouTube3", resourceCulture);
-            }
-        }
     }
 }

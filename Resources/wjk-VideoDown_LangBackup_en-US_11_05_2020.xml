@@ -1,0 +1,135 @@
+<?xml version="1.0" standalone="yes"?>
+<Translate>
+  <Table>
+    <ID>118</ID>
+    <Form>about</Form>
+    <Lang>en-US</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-YouTube-Download - About us</Value>
+  </Table>
+  <Table>
+    <ID>120</ID>
+    <Form>about</Form>
+    <Lang>en-US</Lang>
+    <Key>ProductName</Key>
+    <Value>wjk-Video-Download</Value>
+  </Table>
+  <Table>
+    <ID>54</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Exception21</Key>
+    <Value>Please try again!</Value>
+  </Table>
+  <Table>
+    <ID>55</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Exception22</Key>
+    <Value>Error during processing</Value>
+  </Table>
+  <Table>
+    <ID>56</ID>
+    <Form>all</Form>
+    <Lang>en-US</Lang>
+    <Key>Lang</Key>
+  </Table>
+  <Table>
+    <ID>121</ID>
+    <Form>help</Form>
+    <Lang>en-US</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video-Download - Help</Value>
+  </Table>
+  <Table>
+    <ID>122</ID>
+    <Form>saving</Form>
+    <Lang>en-US</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video Download - Progressbar</Value>
+  </Table>
+  <Table>
+    <ID>123</ID>
+    <Form>saving</Form>
+    <Lang>en-US</Lang>
+    <Key>label1</Key>
+    <Value>The file will be saved.</Value>
+  </Table>
+  <Table>
+    <ID>124</ID>
+    <Form>saving</Form>
+    <Lang>en-US</Lang>
+    <Key>minuten</Key>
+    <Value>Secunds</Value>
+  </Table>
+  <Table>
+    <ID>53</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnAbout.Text</Key>
+    <Value>About</Value>
+  </Table>
+  <Table>
+    <ID>52</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnHelp.Text</Key>
+    <Value>Help</Value>
+  </Table>
+  <Table>
+    <ID>51</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnPreviewFile.Text</Key>
+    <Value>Preview</Value>
+  </Table>
+  <Table>
+    <ID>50</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>BtnReset.Text</Key>
+    <Value>Reset</Value>
+  </Table>
+  <Table>
+    <ID>70</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>IsYouTube1</Key>
+    <Value>This appear to be a YouTube-link.</Value>
+  </Table>
+  <Table>
+    <ID>71</ID>
+    <Form>Start</Form>
+    <Lang>en-US</Lang>
+    <Key>IsYouTube2</Key>
+    <Value>Should I switch to the download for YouTube videos?</Value>
+  </Table>
+  <Table>
+    <ID>4</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube1</Key>
+    <Value>This does not appear to be a YouTube link.</Value>
+  </Table>
+  <Table>
+    <ID>5</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube2</Key>
+    <Value>Should I switch to the direct link for videos?</Value>
+  </Table>
+  <Table>
+    <ID>6</ID>
+    <Form>start</Form>
+    <Lang>en-US</Lang>
+    <Key>NoYouTube3</Key>
+    <Value>This does not appear to be a YouTube link.</Value>
+  </Table>
+  <Table>
+    <ID>126</ID>
+    <Form>video</Form>
+    <Lang>en-US</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video-Downloader - Preview</Value>
+  </Table>
+</Translate>

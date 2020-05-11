@@ -9,13 +9,13 @@ using VideoLibrary;
 
 namespace wjkYouTupe
 {
-    public partial class Start : Form
+    public partial class start : Form
     {
-        DbLayer trans = new DbLayer("start", Properties.Settings.Default.Fallback);
+        DbLayerSQLCE trans = new DbLayerSQLCE("start", Properties.Settings.Default.Language, Properties.Settings.Default.Fallback);
         YouTubeVideo video = null;
         saving form1 = null;
         bool isInit = true;
-        public Start()
+        public start()
         {
             InitializeComponent();
 
@@ -30,27 +30,33 @@ namespace wjkYouTupe
             object[] test = trans.LanguageInfo(culture.Name, false);
             SelectedLang.Text = test[0].ToString();
             pictureBox1.Image = (Image)test[1];
-            TransControls();
+            TransControls(isInit);
             isInit = false;
         }
 
         private void ReadFile_Click(object sender, EventArgs e)
         {
-            form1 = new saving();
             try
             {
                 string uri = TxtUri.Text.Trim();
                 if (uri == "trans")
                 {
                     TxtUri.Text = string.Empty;
-                    LangEditor form = new LangEditor();
+                    langeditor form = new langeditor();
                     form.ShowDialog();
                 }
                 else
                 {
                     if (radioYouTube.Checked && !uri.StartsWith("https://www.youtube.com/watch"))
                     {
-                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("NoYouTube1") + "\r\n" + trans.GetSingleTranslation("NoYouTube2"), trans.GetSingleTranslation("NoYouTube3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        /// We not use the translation function like in this example bellow. It will work but only if there is a 
+                        /// expression in the database otherwise a string.Empty comes back. Therfor use the override what we use.
+                        /// With this override NO record is inserted, when it not exists. You need a other override to get this function.
+                        /// DialogResult result = MessageBox.Show(trans.GetSingleTranslation("NoYouTube1") + "\r\n" + trans.GetSingleTranslation("NoYouTube2"), trans.GetSingleTranslation("NoYouTube3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("NoYouTube1", trans.getLang(), trans.getForm(), trans.getFallback()) + 
+                            "\r\n" + trans.GetSingleTranslation("NoYouTube2", trans.getLang(), trans.getForm(), trans.getFallback()), 
+                            trans.GetSingleTranslation("NoYouTube3", trans.getLang(), trans.getForm(), trans.getFallback()), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
@@ -60,7 +66,9 @@ namespace wjkYouTupe
                     }
                     else if (radioURL.Checked && uri.StartsWith("https://www.youtube.com/watch"))
                     {
-                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("IsYouTube1") + "\r\n" + trans.GetSingleTranslation("IsYouTube2"), trans.GetSingleTranslation("IsYouTube3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show(trans.GetSingleTranslation("IsYouTube1", trans.getLang(), trans.getForm(), trans.getFallback()) + "\r\n" + 
+                            trans.GetSingleTranslation("IsYouTube2", trans.getLang(), trans.getForm(), trans.getFallback()), 
+                            trans.GetSingleTranslation("IsYouTube3", trans.getLang(), trans.getForm(), trans.getFallback()), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             radioYouTube.Checked = true;
@@ -76,16 +84,36 @@ namespace wjkYouTupe
                     }
                     else
                     {
-                        // https://stackoverflow.com/questions/5596747/download-stream-file-from-url-asp-net
 
-                        HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(uri);
-                        HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
-                        if (fileResp.StatusCode != HttpStatusCode.OK) { throw new Exception(trans.GetSingleTranslation("Exception1")); }
-                        int x = uri.LastIndexOf('/');
-                        TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
-                        x = TxtName.Text.LastIndexOf('.');
-                        TxtName.Text = TxtName.Text.Substring(0, x);
-                        fileResp.Close();
+                        // https://stackoverflow.com/questions/5596747/download-stream-file-from-url-asp-net
+                        
+                        int x = -1;
+                        HttpWebRequest test = null;
+                        WebRequest fileReq = (WebRequest)WebRequest.Create(uri);
+                        if (WebRequest.Equals(fileReq, test))
+                        {
+                            HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
+
+                            //if (fileResp.StatusCode != HttpStatusCode.OK) { throw new Exception(trans.GetSingleTranslation("Exception1")); }
+                            x = uri.LastIndexOf('/');
+                            TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
+                            x = TxtName.Text.LastIndexOf('.');
+                            TxtName.Text = TxtName.Text.Substring(0, x);
+                            fileResp.Close();
+                        }
+                        else
+                        {
+                            /// All this of the FileWebRequest is just for fun. Nobody want to copy a file by this way. But to test the
+                            /// application without the internet it works fine. It is nowhere documented.
+
+                            FileWebResponse fileResp = (FileWebResponse)fileReq.GetResponse();
+                            x = uri.LastIndexOf('\\');
+                            TxtName.Text = uri.Substring(x + 1, uri.Length - (x + 1));
+                            x = TxtName.Text.LastIndexOf('.');
+                            TxtName.Text = TxtName.Text.Substring(0, x);
+                            fileResp.Close();
+                        }
+
                     }
                     TxtName.Text = NormelizeFileName(TxtName.Text);
                     button3.Enabled = true;
@@ -95,7 +123,11 @@ namespace wjkYouTupe
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                /// Here we using to overrides for the function GetSingleTranslation first a long form (four values) and second the short
+                /// form (two values). We would say: use the long form because if no expression for the language is found, the short form
+                /// returns a string.Empty. The long form returns the the the string of the Fallback language.
+                
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", trans.getLang(), "all", trans.getFallback()), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
             }
         }
@@ -105,14 +137,14 @@ namespace wjkYouTupe
             // Replace invalid characters with empty strings.
             try
             {
-                return Regex.Replace(strIn, @"[^\w\-]", "",
-                                        RegexOptions.None, TimeSpan.FromSeconds(1.5));
+                return Regex.Replace(strIn, @"[^\w\-]", "", RegexOptions.None, TimeSpan.FromSeconds(1.5));
             }
             // If we timeout when replacing invalid characters, 
             // we should return Empty.
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", trans.getLang(), "all", trans.getFallback()), 
+                    trans.GetSingleTranslation("Exception22", trans.getLang(), "all", trans.getFallback()), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
                 return String.Empty;
             }
@@ -122,13 +154,13 @@ namespace wjkYouTupe
         {
             if (radioYouTube.Checked)
             {
-                TxtInfos.Text = trans.GetSingleTranslation("Infotext1") + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext2") + video.Title + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext3") + TxtName.Text + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext4") + video.FileExtension + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext5") + video.FullName + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext6") + video.Resolution + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext7") + video.Format + "\r\n";
+                TxtInfos.Text = trans.GetSingleTranslation("Infotext1", trans.getLang(), trans.getForm(), trans.getFallback()) + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext2", trans.getLang(), trans.getForm(), trans.getFallback()) + video.Title + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext3", trans.getLang(), trans.getForm(), trans.getFallback()) + TxtName.Text + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext4", trans.getLang(), trans.getForm(), trans.getFallback()) + video.FileExtension + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext5", trans.getLang(), trans.getForm(), trans.getFallback()) + video.FullName + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext6", trans.getLang(), trans.getForm(), trans.getFallback()) + video.Resolution + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext7", trans.getLang(), trans.getForm(), trans.getFallback()) + video.Format + "\r\n";
             }
             else
             {
@@ -138,14 +170,14 @@ namespace wjkYouTupe
                 x = uri.LastIndexOf('.');
                 string ext = uri.Substring(x + 1, uri.Length - (x + 1));
 
-                TxtInfos.Text = trans.GetSingleTranslation("Infotext8") + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext9") + name + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext10") + TxtName.Text + "\r\n";
-                TxtInfos.Text += trans.GetSingleTranslation("Infotext11") + ext + "\r\n";
+                TxtInfos.Text = trans.GetSingleTranslation("Infotext8", trans.getLang(), trans.getForm(), trans.getFallback()) + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext9", trans.getLang(), trans.getForm(), trans.getFallback()) + name + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext10", trans.getLang(), trans.getForm(), trans.getFallback()) + TxtName.Text + "\r\n";
+                TxtInfos.Text += trans.GetSingleTranslation("Infotext11", trans.getLang(), trans.getForm(), trans.getFallback()) + ext + "\r\n";
             }
             TxtInfos.Text += "URI: " + TxtUri.Text.Trim() + "\r\n";
             TxtInfos.Text += "\r\n" + "-----------------------" + "\r\n" + "\r\n";
-            TxtInfos.Text += "\b" + trans.GetSingleTranslation("Infotext12") + "\b";
+            TxtInfos.Text += "\b" + trans.GetSingleTranslation("Infotext12", trans.getLang(), trans.getForm(), trans.getFallback()) + "\b";
             TxtName.ReadOnly = true;
             button1.Enabled = true;
         }
@@ -170,7 +202,8 @@ namespace wjkYouTupe
                 string ext = uri.Substring(x, uri.Length - x);
                 TxtPath.Text = Path.Combine(folderBrowserDialog1.SelectedPath, TxtName.Text);
                 TxtPath.Text += (radioYouTube.Checked) ? video.FileExtension : ext;
-                TxtInfos.Text += "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n" + trans.GetSingleTranslation("Infotext13") + TxtPath.Text + "\r\n" + "\r\n";
+                TxtInfos.Text += "\r\n" + "\r\n" + "-----------------------" + "\r\n" + "\r\n" + 
+                    trans.GetSingleTranslation("Infotext13", trans.getLang(), trans.getForm(), trans.getFallback()) + TxtPath.Text + "\r\n" + "\r\n";
                 TxtInfos.ReadOnly = true;
                 button2.Enabled = true;
                 if (checkRememberPath.Checked)
@@ -181,7 +214,8 @@ namespace wjkYouTupe
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", trans.getLang(), "all", trans.getFallback()), 
+                    trans.GetSingleTranslation("Exception22", trans.getLang(), "all", trans.getFallback()), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BtnReset_Click(null, null);
             }
         }
@@ -190,7 +224,9 @@ namespace wjkYouTupe
         {
             if (File.Exists(TxtPath.Text))
             {
-                var response = MessageBox.Show(trans.GetSingleTranslation("MessageBoxOverwrite1") + "\r\n" + trans.GetSingleTranslation("MessageBoxOverwrite2"), trans.GetSingleTranslation("MessageBoxOverwrite3"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                var response = MessageBox.Show(trans.GetSingleTranslation("MessageBoxOverwrite1", trans.getLang(), trans.getForm(), trans.getFallback()) + "\r\n" + 
+                    trans.GetSingleTranslation("MessageBoxOverwrite2", trans.getLang(), trans.getForm(), trans.getFallback()), 
+                    trans.GetSingleTranslation("MessageBoxOverwrite3", trans.getLang(), trans.getForm(), trans.getFallback()), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (response == DialogResult.Yes)
                 {
                     SaveDatei();
@@ -213,6 +249,7 @@ namespace wjkYouTupe
             try
             { 
                 label5.Visible = true;
+                form1 = new saving();
                 form1.Show();
 
                 if (radioYouTube.Checked)
@@ -221,9 +258,10 @@ namespace wjkYouTupe
                 }
                 else
                 {
-                    try
+                    HttpWebRequest test = null;
+                    WebRequest fileReq = (WebRequest)WebRequest.Create(TxtUri.Text);
+                    if (WebRequest.Equals(fileReq, test))
                     {
-                        HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(TxtUri.Text);
                         HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
 
                         if (fileReq.ContentLength > 0)
@@ -231,21 +269,34 @@ namespace wjkYouTupe
                         TxtInfos.Text += String.Format("{0}: {1} Byte" + "\r\n", trans.GetSingleTranslation("Infotext14"), fileResp.ContentLength);
                         saveFile(fileResp);
                     }
-                    finally
-                    { }
+                    else
+                    {
+                        /// All this of the FileWebRequest is just for fun. Nobody want to copy a file by this way. But to test the
+                        /// application without the internet it works fine. It is nowhere documented.
+
+                        FileWebResponse fileResp = (FileWebResponse)fileReq.GetResponse();
+
+                        if (fileReq.ContentLength > 0)
+                            fileResp.ContentLength = fileReq.ContentLength;
+                        TxtInfos.Text += String.Format("{0}: {1} Byte" + "\r\n", 
+                            trans.GetSingleTranslation("Infotext14", trans.getLang(), trans.getForm(), trans.getFallback()), fileResp.ContentLength);
+                        saveFile(fileResp);
+                    }
+
                 }
                 if (CheckSaveInfo.Checked)
                 {
                     int x = TxtPath.Text.LastIndexOf('.');
                     string path = TxtPath.Text.Substring(0, x) + "_info.txt";
-                    TxtInfos.Text += "*** " + trans.GetSingleTranslation("Infotext15") + " ***" + "\r\n";
+                    TxtInfos.Text += "*** " + trans.GetSingleTranslation("Infotext15", trans.getLang(), trans.getForm(), trans.getFallback()) + " ***" + "\r\n";
                     TxtInfos.Text += "*** " + path + " ***" + "\r\n" + "\r\n";
                     File.WriteAllText(path, TxtInfos.Text);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", "all"), trans.GetSingleTranslation("Exception22", "all"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", trans.getLang(), "all", trans.getFallback()), 
+                    trans.GetSingleTranslation("Exception22", trans.getLang(), "all", trans.getFallback()), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPath.ReadOnly = false;
                 button2.Enabled = true;
             }
@@ -262,6 +313,35 @@ namespace wjkYouTupe
             form1.Close();
         }
         private async void saveFile(HttpWebResponse fileResp)
+        {
+            FileStream fileStream = null;
+            Stream iostream = null;
+
+            try
+            {
+                iostream = fileResp.GetResponseStream();
+                fileStream = new FileStream(TxtPath.Text, FileMode.Create, FileAccess.Write, FileShare.None);
+                await iostream.CopyToAsync(fileStream);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\r\n" + trans.GetSingleTranslation("Exception21", trans.getLang(), "all", trans.getFallback()), 
+                    trans.GetSingleTranslation("Exception22", trans.getLang(), "all", trans.getFallback()), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                fileStream.Close();
+                iostream.Close();
+                form1.Close();
+            }
+        }
+        /// <summary>
+        /// All this of the FileWebRequest is just for fun. Nobody want to copy a file by this way. But to test the
+        /// application without the internet it works fine. It is nowhere documented.
+        /// </summary>
+        /// <param name="fileResp"></param>
+        private async void saveFile(FileWebResponse fileResp)
         {
             FileStream fileStream = null;
             Stream iostream = null;
@@ -317,35 +397,35 @@ namespace wjkYouTupe
 
         private void BtnAbout_Click(object sender, EventArgs e)
         {
-            about form = new about();
-            _ = form.ShowDialog();
+            about form2 = new about();
+            _ = form2.ShowDialog();
         }
 
         private void BtnHelp_Click(object sender, EventArgs e)
         {
-            help form = new help();
-            form.Show();
+            help form3 = new help();
+            form3.Show();
         }
 
         private void BtnPreviewURL_Click(object sender, EventArgs e)
         {
-            video form = new video();
+            video form4 = new video();
             if (radioYouTube.Checked)
             {
-                form.VideoURL = video.Uri;
+                form4.VideoURL = video.Uri;
             }
             else
             {
-                form.VideoURL = TxtUri.Text.Trim();
+                form4.VideoURL = TxtUri.Text.Trim();
             }
-            form.Show();
+            form4.Show();
         }
 
         private void BtnPreviewFile_Click(object sender, EventArgs e)
         {
-            video form = new video();
-            form.VideoURL = TxtPath.Text.Trim();
-            form.Show();
+            video form4 = new video();
+            form4.VideoURL = TxtPath.Text.Trim();
+            form4.Show();
         }
 
         private void DdLang_SelectedIndexChanged(object sender, EventArgs e)
@@ -363,29 +443,46 @@ namespace wjkYouTupe
                 SelectedLang.Text = test[0].ToString();
                 pictureBox1.Image = (Image)test[1];
                 trans.setLang(culture.Name);
-                TransControls();
+                TransControls(false);
             }
         }
 
-        private void TransControls()
+        private void TransControls(bool IsEditable)
         {
-            ReadFile.Text = trans.GetSingleTranslation("ReadFile.Text");
-            radioYouTube.Text = trans.GetSingleTranslation("radioYouTube.Text");
-            radioURL.Text = trans.GetSingleTranslation("radioURL.Text");
-            label5.Text = trans.GetSingleTranslation("label5.Text");
-            label4.Text = trans.GetSingleTranslation("label4.Text");
-            label3.Text = trans.GetSingleTranslation("label3.Text");
-            label2.Text = trans.GetSingleTranslation("label2.Text");
-            label1.Text = trans.GetSingleTranslation("label1.Text");
-            groupURL.Text = trans.GetSingleTranslation("groupURL.Text");
-            CheckSaveInfo.Text = trans.GetSingleTranslation("CheckSaveInfo.Text");
-            button3.Text = trans.GetSingleTranslation("button3.Text");
-            button2.Text = trans.GetSingleTranslation("button2.Text");
-            button1.Text = trans.GetSingleTranslation("button1.Text");
-            BtnReset.Text = trans.GetSingleTranslation("BtnReset.Text");
-            BtnPreviewFile.Text = trans.GetSingleTranslation("BtnPreviewFile.Text");
-            BtnHelp.Text = trans.GetSingleTranslation("BtnHelp.Text");
-            BtnAbout.Text = trans.GetSingleTranslation("BtnAbout.Text");
+            string value = this.Text;
+            this.Text = (trans.GetSingleTranslation(ref value, "ActiveForm", IsEditable)) ? value : this.Text;
+            value = ReadFile.Text;
+            ReadFile.Text = (trans.GetSingleTranslation(ref value, "ReadFile.Text", IsEditable)) ? value : ReadFile.Text;
+            value = radioYouTube.Text;
+            radioYouTube.Text = (trans.GetSingleTranslation(ref value, "radioYouTube.Text", IsEditable)) ? value: radioYouTube.Text;
+            value = radioURL.Text;
+            radioURL.Text = (trans.GetSingleTranslation(ref value, "radioURL.Text", IsEditable)) ? value: radioURL.Text;
+            value = label5.Text;
+            label5.Text = (trans.GetSingleTranslation(ref value, "label5.Text", IsEditable)) ? value: label5.Text;
+            value = label4.Text;
+            label4.Text = (trans.GetSingleTranslation(ref value, "label4.Text", IsEditable)) ? value: label4.Text;
+            value = label2.Text;
+            label2.Text = (trans.GetSingleTranslation(ref value, "label2.Text", IsEditable)) ? value: label2.Text;
+            value = label1.Text;
+            label1.Text = (trans.GetSingleTranslation(ref value, "label1.Text", IsEditable)) ? value: label1.Text;
+            value = groupURL.Text;
+            groupURL.Text = (trans.GetSingleTranslation(ref value, "groupURL.Text", IsEditable)) ? value: groupURL.Text;
+            value = CheckSaveInfo.Text;
+            CheckSaveInfo.Text = (trans.GetSingleTranslation(ref value, "CheckSaveInfo.Text", IsEditable)) ? value: CheckSaveInfo.Text;
+            value = button3.Text;
+            button3.Text = (trans.GetSingleTranslation(ref value, "button3.Text", IsEditable)) ? value: button3.Text;
+            value = button2.Text;
+            button2.Text = (trans.GetSingleTranslation(ref value, "button2.Text", IsEditable)) ? value: button2.Text;
+            value = button1.Text;
+            button1.Text = (trans.GetSingleTranslation(ref value, "button1.Text", IsEditable)) ? value: button1.Text;
+            value = BtnReset.Text;
+            BtnReset.Text = (trans.GetSingleTranslation(ref value, "BtnReset.Text", IsEditable)) ? value: BtnReset.Text;
+            value = BtnPreviewFile.Text;
+            BtnPreviewFile.Text = (trans.GetSingleTranslation(ref value, "BtnPreviewFile.Text")) ? value: BtnPreviewFile.Text;
+            value = BtnHelp.Text;
+            BtnHelp.Text = (trans.GetSingleTranslation(ref value, "BtnHelp.Text", IsEditable)) ? value: BtnHelp.Text;
+            value = BtnAbout.Text;
+            BtnAbout.Text = (trans.GetSingleTranslation(ref value, "BtnAbout.Text", IsEditable)) ? value: BtnAbout.Text;
         }
     }
 }

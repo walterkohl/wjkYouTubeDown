@@ -117,15 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NoYouTube1" xml:space="preserve">
-    <value>Dies scheint kein YouTube-Link zu sein.</value>
-    <comment>radioYouTube.Checked &amp;&amp;</comment>
-  </data>
-  <data name="NoYouTube2" xml:space="preserve">
-    <value>Soll ich zum Direktlink für Videos wechseln?</value>
-    <comment>!.StartsWith_https://www.youtube.com/watch"</comment>
-  </data>
-  <data name="NoYouTube3" xml:space="preserve">
-    <value>Wechsel zu Video-URL</value>
-  </data>
 </root>

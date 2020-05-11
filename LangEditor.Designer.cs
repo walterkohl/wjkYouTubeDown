@@ -1,6 +1,6 @@
 ﻿namespace wjkYouTupe
 {
-    partial class LangEditor
+    partial class langeditor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LangEditor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(langeditor));
             this.label1 = new System.Windows.Forms.Label();
             this.listEditLanguage = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,8 +41,6 @@
             this.listNewLanguage = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.listForms = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.listControls = new System.Windows.Forms.ListBox();
             this.EditFlagName = new System.Windows.Forms.Label();
             this.EditNativName = new System.Windows.Forms.Label();
             this.ImgFallback = new System.Windows.Forms.PictureBox();
@@ -52,22 +50,23 @@
             this.ImgAddLang = new System.Windows.Forms.PictureBox();
             this.lblAddLang = new System.Windows.Forms.Label();
             this.BtnEditRemove = new System.Windows.Forms.LinkLabel();
-            this.textControl = new System.Windows.Forms.TextBox();
             this.langCurrInternName = new System.Windows.Forms.Label();
             this.langCurrNativeName = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblDBFunctions = new System.Windows.Forms.Label();
             this.listDBKeys = new System.Windows.Forms.ListBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.TxtFallback = new System.Windows.Forms.TextBox();
             this.TxtTrans = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblTransCulture = new System.Windows.Forms.Label();
             this.ImgEditFlag = new System.Windows.Forms.PictureBox();
             this.lblSelectFormular = new System.Windows.Forms.LinkLabel();
+            this.BtnSave = new System.Windows.Forms.LinkLabel();
+            this.BtnDelete = new System.Windows.Forms.LinkLabel();
+            this.BtnInsert = new System.Windows.Forms.LinkLabel();
+            this.lblAnser = new System.Windows.Forms.Label();
+            this.linkFullBackup = new System.Windows.Forms.LinkLabel();
+            this.linkLangBackup = new System.Windows.Forms.LinkLabel();
+            this.linkReadBackup = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ImgFallback)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCurrentLang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgAddLang)).BeginInit();
@@ -188,25 +187,6 @@
             this.listForms.TabIndex = 13;
             this.listForms.SelectedIndexChanged += new System.EventHandler(this.listForms_SelectedIndexChanged);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(564, 268);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Gegenkontrolle";
-            // 
-            // listControls
-            // 
-            this.listControls.FormattingEnabled = true;
-            this.listControls.ItemHeight = 20;
-            this.listControls.Location = new System.Drawing.Point(568, 303);
-            this.listControls.Name = "listControls";
-            this.listControls.Size = new System.Drawing.Size(148, 124);
-            this.listControls.TabIndex = 15;
-            this.listControls.SelectedIndexChanged += new System.EventHandler(this.listControls_SelectedIndexChanged);
-            // 
             // EditFlagName
             // 
             this.EditFlagName.AutoSize = true;
@@ -300,15 +280,6 @@
             this.BtnEditRemove.Text = "Aus liste loeschen";
             this.BtnEditRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnEditRemove_LinkClicked);
             // 
-            // textControl
-            // 
-            this.textControl.Location = new System.Drawing.Point(769, 366);
-            this.textControl.Multiline = true;
-            this.textControl.Name = "textControl";
-            this.textControl.ReadOnly = true;
-            this.textControl.Size = new System.Drawing.Size(384, 61);
-            this.textControl.TabIndex = 25;
-            // 
             // langCurrInternName
             // 
             this.langCurrInternName.AutoSize = true;
@@ -327,91 +298,46 @@
             this.langCurrNativeName.TabIndex = 27;
             this.langCurrNativeName.Text = "Nativer Name";
             // 
-            // label5
+            // lblDBFunctions
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(962, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 20);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Datenbank-Inhalte";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(966, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(182, 20);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Inhalt Ausgangssprache";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(966, 87);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 20);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "Control: ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1041, 87);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 20);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "lblControlBasic";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(769, 343);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(203, 20);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Derzeitiger Controller-Inhalt";
+            this.lblDBFunctions.AutoSize = true;
+            this.lblDBFunctions.Location = new System.Drawing.Point(765, 25);
+            this.lblDBFunctions.Name = "lblDBFunctions";
+            this.lblDBFunctions.Size = new System.Drawing.Size(163, 20);
+            this.lblDBFunctions.TabIndex = 28;
+            this.lblDBFunctions.Text = "Datenbankfunktionen";
             // 
             // listDBKeys
             // 
             this.listDBKeys.FormattingEnabled = true;
             this.listDBKeys.ItemHeight = 20;
-            this.listDBKeys.Location = new System.Drawing.Point(773, 21);
+            this.listDBKeys.Location = new System.Drawing.Point(568, 303);
             this.listDBKeys.Name = "listDBKeys";
             this.listDBKeys.Size = new System.Drawing.Size(148, 124);
             this.listDBKeys.TabIndex = 33;
             this.listDBKeys.SelectedIndexChanged += new System.EventHandler(this.listDBKeys_SelectedIndexChanged);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(966, 128);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 20);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "Basisinhalt";
-            // 
             // TxtFallback
             // 
-            this.TxtFallback.Location = new System.Drawing.Point(773, 161);
+            this.TxtFallback.Location = new System.Drawing.Point(769, 161);
             this.TxtFallback.Multiline = true;
             this.TxtFallback.Name = "TxtFallback";
             this.TxtFallback.ReadOnly = true;
-            this.TxtFallback.Size = new System.Drawing.Size(380, 61);
+            this.TxtFallback.Size = new System.Drawing.Size(380, 84);
             this.TxtFallback.TabIndex = 35;
             // 
             // TxtTrans
             // 
-            this.TxtTrans.Location = new System.Drawing.Point(773, 266);
+            this.TxtTrans.Location = new System.Drawing.Point(769, 303);
             this.TxtTrans.Multiline = true;
             this.TxtTrans.Name = "TxtTrans";
-            this.TxtTrans.Size = new System.Drawing.Size(380, 61);
+            this.TxtTrans.Size = new System.Drawing.Size(380, 111);
             this.TxtTrans.TabIndex = 36;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(773, 240);
+            this.label14.Location = new System.Drawing.Point(769, 268);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(159, 20);
             this.label14.TabIndex = 37;
@@ -420,7 +346,7 @@
             // lblTransCulture
             // 
             this.lblTransCulture.AutoSize = true;
-            this.lblTransCulture.Location = new System.Drawing.Point(1066, 239);
+            this.lblTransCulture.Location = new System.Drawing.Point(1058, 267);
             this.lblTransCulture.Name = "lblTransCulture";
             this.lblTransCulture.Size = new System.Drawing.Size(115, 20);
             this.lblTransCulture.TabIndex = 38;
@@ -448,27 +374,106 @@
             this.lblSelectFormular.Text = "Formular auswählen";
             this.lblSelectFormular.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSelectFormular_LinkClicked);
             // 
-            // LangEditor
+            // BtnSave
+            // 
+            this.BtnSave.AutoSize = true;
+            this.BtnSave.Location = new System.Drawing.Point(867, 418);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(81, 20);
+            this.BtnSave.TabIndex = 41;
+            this.BtnSave.TabStop = true;
+            this.BtnSave.Text = "Speichern";
+            this.BtnSave.Visible = false;
+            this.BtnSave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnSave_LinkClicked);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.AutoSize = true;
+            this.BtnDelete.Location = new System.Drawing.Point(973, 418);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(79, 20);
+            this.BtnDelete.TabIndex = 42;
+            this.BtnDelete.TabStop = true;
+            this.BtnDelete.Text = "Loeschen";
+            this.BtnDelete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnDelete_LinkClicked);
+            // 
+            // BtnInsert
+            // 
+            this.BtnInsert.AutoSize = true;
+            this.BtnInsert.Location = new System.Drawing.Point(769, 417);
+            this.BtnInsert.Name = "BtnInsert";
+            this.BtnInsert.Size = new System.Drawing.Size(82, 20);
+            this.BtnInsert.TabIndex = 43;
+            this.BtnInsert.TabStop = true;
+            this.BtnInsert.Text = "Einfuegen";
+            this.BtnInsert.Visible = false;
+            this.BtnInsert.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnInsert_LinkClicked);
+            // 
+            // lblAnser
+            // 
+            this.lblAnser.AutoSize = true;
+            this.lblAnser.ForeColor = System.Drawing.Color.Green;
+            this.lblAnser.Location = new System.Drawing.Point(1071, 418);
+            this.lblAnser.Name = "lblAnser";
+            this.lblAnser.Size = new System.Drawing.Size(66, 20);
+            this.lblAnser.TabIndex = 44;
+            this.lblAnser.Text = "lblAnser";
+            this.lblAnser.Visible = false;
+            // 
+            // linkFullBackup
+            // 
+            this.linkFullBackup.AutoSize = true;
+            this.linkFullBackup.Location = new System.Drawing.Point(765, 58);
+            this.linkFullBackup.Name = "linkFullBackup";
+            this.linkFullBackup.Size = new System.Drawing.Size(176, 20);
+            this.linkFullBackup.TabIndex = 45;
+            this.linkFullBackup.TabStop = true;
+            this.linkFullBackup.Text = "Gesamter XML-Backup";
+            this.linkFullBackup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFullBackup_LinkClicked);
+            // 
+            // linkLangBackup
+            // 
+            this.linkLangBackup.AutoSize = true;
+            this.linkLangBackup.Location = new System.Drawing.Point(765, 92);
+            this.linkLangBackup.Name = "linkLangBackup";
+            this.linkLangBackup.Size = new System.Drawing.Size(197, 20);
+            this.linkLangBackup.TabIndex = 46;
+            this.linkLangBackup.TabStop = true;
+            this.linkLangBackup.Text = "XML-Backup fuer Sprache";
+            this.linkLangBackup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLangBackup_LinkClicked);
+            // 
+            // linkReadBackup
+            // 
+            this.linkReadBackup.AutoSize = true;
+            this.linkReadBackup.Location = new System.Drawing.Point(765, 122);
+            this.linkReadBackup.Name = "linkReadBackup";
+            this.linkReadBackup.Size = new System.Drawing.Size(126, 20);
+            this.linkReadBackup.TabIndex = 47;
+            this.linkReadBackup.TabStop = true;
+            this.linkReadBackup.Text = "Backup einlesen";
+            // 
+            // langeditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 450);
+            this.Controls.Add(this.linkReadBackup);
+            this.Controls.Add(this.linkLangBackup);
+            this.Controls.Add(this.linkFullBackup);
+            this.Controls.Add(this.lblAnser);
+            this.Controls.Add(this.BtnInsert);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.lblSelectFormular);
             this.Controls.Add(this.ImgEditFlag);
             this.Controls.Add(this.lblTransCulture);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TxtTrans);
             this.Controls.Add(this.TxtFallback);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.listDBKeys);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblDBFunctions);
             this.Controls.Add(this.langCurrNativeName);
             this.Controls.Add(this.langCurrInternName);
-            this.Controls.Add(this.textControl);
             this.Controls.Add(this.BtnEditRemove);
             this.Controls.Add(this.ImgAddLang);
             this.Controls.Add(this.lblAddLang);
@@ -478,8 +483,6 @@
             this.Controls.Add(this.ImgFallback);
             this.Controls.Add(this.EditNativName);
             this.Controls.Add(this.EditFlagName);
-            this.Controls.Add(this.listControls);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.listForms);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listNewLanguage);
@@ -493,8 +496,9 @@
             this.Controls.Add(this.listEditLanguage);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "LangEditor";
+            this.Name = "langeditor";
             this.Text = "wjk-VideoDownloader Spracheditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LangEditor_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ImgFallback)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCurrentLang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgAddLang)).EndInit();
@@ -518,8 +522,6 @@
         private System.Windows.Forms.ListBox listNewLanguage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listForms;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listControls;
         private System.Windows.Forms.Label EditFlagName;
         private System.Windows.Forms.Label EditNativName;
         private System.Windows.Forms.PictureBox ImgFallback;
@@ -529,21 +531,22 @@
         private System.Windows.Forms.PictureBox ImgAddLang;
         private System.Windows.Forms.Label lblAddLang;
         private System.Windows.Forms.LinkLabel BtnEditRemove;
-        private System.Windows.Forms.TextBox textControl;
         private System.Windows.Forms.Label langCurrInternName;
         private System.Windows.Forms.Label langCurrNativeName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblDBFunctions;
         private System.Windows.Forms.ListBox listDBKeys;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TxtFallback;
         private System.Windows.Forms.TextBox TxtTrans;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblTransCulture;
         private System.Windows.Forms.PictureBox ImgEditFlag;
         private System.Windows.Forms.LinkLabel lblSelectFormular;
+        private System.Windows.Forms.LinkLabel BtnSave;
+        private System.Windows.Forms.LinkLabel BtnDelete;
+        private System.Windows.Forms.LinkLabel BtnInsert;
+        private System.Windows.Forms.Label lblAnser;
+        private System.Windows.Forms.LinkLabel linkFullBackup;
+        private System.Windows.Forms.LinkLabel linkLangBackup;
+        private System.Windows.Forms.LinkLabel linkReadBackup;
     }
 }

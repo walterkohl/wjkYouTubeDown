@@ -1,0 +1,401 @@
+<?xml version="1.0" standalone="yes"?>
+<Translate>
+  <Table>
+    <ID>63</ID>
+    <Form>about</Form>
+    <Lang>de-DE</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-YouTube-Download - Über uns</Value>
+  </Table>
+  <Table>
+    <ID>108</ID>
+    <Form>about</Form>
+    <Lang>de-DE</Lang>
+    <Key>ProductName</Key>
+    <Value>wjk-Video-Downloader</Value>
+  </Table>
+  <Table>
+    <ID>11</ID>
+    <Form>all</Form>
+    <Lang>de-DE</Lang>
+    <Key>Exception21</Key>
+    <Value>Bitte neu versuchen!</Value>
+  </Table>
+  <Table>
+    <ID>12</ID>
+    <Form>all</Form>
+    <Lang>de-DE</Lang>
+    <Key>Exception22</Key>
+    <Value>Fehler beim Verarbeiten</Value>
+  </Table>
+  <Table>
+    <ID>57</ID>
+    <Form>all</Form>
+    <Lang>de-DE</Lang>
+    <Key>Lang</Key>
+  </Table>
+  <Table>
+    <ID>107</ID>
+    <Form>help</Form>
+    <Lang>de-DE</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video-Download - Hilfe</Value>
+  </Table>
+  <Table>
+    <ID>109</ID>
+    <Form>LangEditor</Form>
+    <Lang>de-DE</Lang>
+    <Key>ErrorText</Key>
+    <Value>Du musst zunaechst eine Sprache zum editiern auswaehlen. Sie wird auch Deine Backup-Sprache sein.</Value>
+  </Table>
+  <Table>
+    <ID>113</ID>
+    <Form>LangEditor</Form>
+    <Lang>de-DE</Lang>
+    <Key>MBText7</Key>
+    <Value>Datensaetze wurden beim Gesamtbackup gespeichert</Value>
+  </Table>
+  <Table>
+    <ID>114</ID>
+    <Form>LangEditor</Form>
+    <Lang>de-DE</Lang>
+    <Key>MBText8</Key>
+    <Value>Der Dateipfad ist</Value>
+  </Table>
+  <Table>
+    <ID>110</ID>
+    <Form>saving</Form>
+    <Lang>de-DE</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video Download - Progressbar</Value>
+  </Table>
+  <Table>
+    <ID>111</ID>
+    <Form>saving</Form>
+    <Lang>de-DE</Lang>
+    <Key>label1</Key>
+    <Value>Die Datei wird gespeichert...</Value>
+  </Table>
+  <Table>
+    <ID>112</ID>
+    <Form>saving</Form>
+    <Lang>de-DE</Lang>
+    <Key>minuten</Key>
+    <Value>Sekunden</Value>
+  </Table>
+  <Table>
+    <ID>61</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>ActiveForm</Key>
+    <Value>wjk-Video-Download - Start</Value>
+  </Table>
+  <Table>
+    <ID>49</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>BtnAbout.Text</Key>
+    <Value>Über uns</Value>
+  </Table>
+  <Table>
+    <ID>48</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>BtnHelp.Text</Key>
+    <Value>Hilfe</Value>
+  </Table>
+  <Table>
+    <ID>47</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>BtnPreviewFile.Text</Key>
+    <Value>Vorschau</Value>
+  </Table>
+  <Table>
+    <ID>46</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>BtnReset.Text</Key>
+    <Value>Ruecksetzen</Value>
+  </Table>
+  <Table>
+    <ID>45</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>button1.Text</Key>
+    <Value>Verzeichnis zum Speichern wählen</Value>
+  </Table>
+  <Table>
+    <ID>44</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>button2.Text</Key>
+    <Value>Speichern</Value>
+  </Table>
+  <Table>
+    <ID>43</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>button3.Text</Key>
+    <Value>Name okay?</Value>
+  </Table>
+  <Table>
+    <ID>42</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>CheckSaveInfo.Text</Key>
+    <Value>Ja: Infos speichern</Value>
+  </Table>
+  <Table>
+    <ID>10</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Exception1</Key>
+    <Value>Ich konnte die Datei nicht laden...</Value>
+  </Table>
+  <Table>
+    <ID>26</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>folderBrowserDialog1</Key>
+    <Value>W�hle das Verzeichnis zum Speichern aus</Value>
+  </Table>
+  <Table>
+    <ID>38</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>groupURL.Text</Key>
+    <Value>URL</Value>
+  </Table>
+  <Table>
+    <ID>13</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext1</Key>
+    <Value>YouTube-Infos: </Value>
+  </Table>
+  <Table>
+    <ID>22</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext10</Key>
+    <Value>Speichername: </Value>
+  </Table>
+  <Table>
+    <ID>23</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext11</Key>
+    <Value>Erweiterung: </Value>
+  </Table>
+  <Table>
+    <ID>24</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext12</Key>
+    <Value>Platz f�r eigene Eintr�ge...</Value>
+  </Table>
+  <Table>
+    <ID>25</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext13</Key>
+    <Value>Speicherort: </Value>
+  </Table>
+  <Table>
+    <ID>28</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext14</Key>
+    <Value>Dateigr��e</Value>
+  </Table>
+  <Table>
+    <ID>27</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext15</Key>
+    <Value>Diese Informationen werden gespeichert unter:</Value>
+  </Table>
+  <Table>
+    <ID>19</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext2</Key>
+    <Value>Originaltitel: </Value>
+  </Table>
+  <Table>
+    <ID>14</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext3</Key>
+    <Value>Speichername: </Value>
+  </Table>
+  <Table>
+    <ID>15</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext4</Key>
+    <Value>Erweiterung: </Value>
+  </Table>
+  <Table>
+    <ID>16</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext5</Key>
+    <Value>Ganzer Name: </Value>
+  </Table>
+  <Table>
+    <ID>17</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext6</Key>
+    <Value>Aufl�sung: </Value>
+  </Table>
+  <Table>
+    <ID>18</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext7</Key>
+    <Value>Videoformat: </Value>
+  </Table>
+  <Table>
+    <ID>20</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext8</Key>
+    <Value>Selfmade-Infos: </Value>
+  </Table>
+  <Table>
+    <ID>21</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>Infotext9</Key>
+    <Value>Originaltitel: </Value>
+  </Table>
+  <Table>
+    <ID>7</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>IsYouTube1</Key>
+    <Value>Dies scheint ein YouTube-Link zu sein.</Value>
+  </Table>
+  <Table>
+    <ID>8</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>IsYouTube2</Key>
+    <Value>Soll ich zum Download f�r YouTube-Videos wechseln?</Value>
+  </Table>
+  <Table>
+    <ID>9</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>IsYouTube3</Key>
+    <Value>Wechsel zu YouTube</Value>
+  </Table>
+  <Table>
+    <ID>37</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label1.Text</Key>
+    <Value>Bitte den Link aus YouTube hierher kopieren.</Value>
+  </Table>
+  <Table>
+    <ID>36</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label2.Text</Key>
+    <Value>Dateiname zum Speichern</Value>
+  </Table>
+  <Table>
+    <ID>35</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label3.Text</Key>
+    <Value>Nachfolgende Videoinformationen in Datei speichern</Value>
+  </Table>
+  <Table>
+    <ID>34</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label4.Text</Key>
+    <Value>Speichern unter</Value>
+  </Table>
+  <Table>
+    <ID>33</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label5.Text</Key>
+    <Value>*** Speichern ***</Value>
+  </Table>
+  <Table>
+    <ID>32</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>label6.Text</Key>
+    <Value>Die Datei existiert, bitte umbenennen!</Value>
+  </Table>
+  <Table>
+    <ID>58</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>MessageBoxOverwrite1</Key>
+    <Value>Diese Datei ist bereits vorhanden.</Value>
+  </Table>
+  <Table>
+    <ID>59</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>MessageBoxOverwrite2</Key>
+    <Value>Soll sie ueberschrieben werden?</Value>
+  </Table>
+  <Table>
+    <ID>60</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>MessageBoxOverwrite3</Key>
+    <Value>Datei ueberschreiben?</Value>
+  </Table>
+  <Table>
+    <ID>3</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>NoYouTube1</Key>
+    <Value>Dies scheint kein YouTube-Link zu sein.</Value>
+  </Table>
+  <Table>
+    <ID>2</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>NoYouTube2</Key>
+    <Value>Soll ich zum Direktlink f�r Videos wechseln?</Value>
+  </Table>
+  <Table>
+    <ID>1</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>NoYouTube3</Key>
+    <Value>Dies scheint kein YouTube-Link zu sein.</Value>
+  </Table>
+  <Table>
+    <ID>31</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>radioURL.Text</Key>
+    <Value>Video-URL</Value>
+  </Table>
+  <Table>
+    <ID>30</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>radioYouTube.Text</Key>
+    <Value>YouTube-Link</Value>
+  </Table>
+  <Table>
+    <ID>29</ID>
+    <Form>start</Form>
+    <Lang>de-DE</Lang>
+    <Key>ReadFile.Text</Key>
+    <Value>Datei lesen</Value>
+  </Table>
+</Translate>

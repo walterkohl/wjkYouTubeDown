@@ -45,7 +45,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 354);
+            this.richTextBox1.Location = new System.Drawing.Point(13, 370);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(557, 320);
@@ -59,8 +59,9 @@
             this.ClientSize = new System.Drawing.Size(585, 702);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "help";
-            this.Text = "wjk-Video-Downloader Hilfe";
+            this.Text = "wjk-Video-Download - Hilfe";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

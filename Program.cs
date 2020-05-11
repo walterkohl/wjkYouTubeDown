@@ -13,7 +13,11 @@ namespace wjkYouTupe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Start());
+            splash form = new splash();
+            form.ShowDialog();
+            Application.Run(new start());
         }
+
+        
     }
 }

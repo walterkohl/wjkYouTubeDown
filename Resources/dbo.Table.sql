@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Translate]
+(
+	[ID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Form] VARCHAR(100) NOT NULL, 
+    [Lang] VARCHAR(10) NOT NULL, 
+    [Key] VARCHAR(100) NOT NULL, 
+    [Value] VARBINARY(1000) NOT NULL
+)
